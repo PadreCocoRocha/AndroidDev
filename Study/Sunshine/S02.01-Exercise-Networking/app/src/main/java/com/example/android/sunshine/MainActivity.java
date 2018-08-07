@@ -15,10 +15,8 @@
  */
 package com.example.android.sunshine;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -26,7 +24,6 @@ import com.example.android.sunshine.data.SunshinePreferences;
 import com.example.android.sunshine.utilities.NetworkUtils;
 
 import java.io.IOException;
-import java.net.NetPermission;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         loadWeatherData();
     }
 
-    // COMPLETE (8) Create a method that will get the user's preferred location and execute your new AsyncTask and call it loadWeatherData
+    // COMPLETE (8) Create a method that will get the user's preferred location and execute your
+    // new AsyncTask and call it loadWeatherData
     public void loadWeatherData(){
         String preferred = SunshinePreferences.getPreferredWeatherLocation(this);
         new FetchWeatherTask().execute(preferred);
