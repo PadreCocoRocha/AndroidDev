@@ -1,10 +1,8 @@
-.metadata
+Study/FirstProject/build
 android-basic-samples-master
 jdk1.7.0_71
-
-FavoriteToys/.idea/caches/
-        FavoriteToys/.idea/dictionaries/
-        FavoriteToys/.idea/vcs.xml
-        FirstProject/.idea/vcs.xml
-        sdk/
-
+sdk
+.metadata
+AeroGuard/
+ DJI/
+Flytbase/
