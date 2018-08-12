@@ -56,7 +56,7 @@ public class AudioInputReader {
         }
 
         // Set the size of the byte array returned for visualization
-        mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[0]);
+        mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
         // Whenever audio data is available, update the visualizer view
         mVisualizer.setDataCaptureListener(
                 new Visualizer.OnDataCaptureListener() {
