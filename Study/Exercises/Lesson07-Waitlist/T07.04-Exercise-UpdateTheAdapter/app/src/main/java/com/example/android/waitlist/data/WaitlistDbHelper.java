@@ -22,7 +22,6 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
         // Create a table to hold waitlist data
         final String SQL_CREATE_WAITLIST_TABLE = "CREATE TABLE " + WaitlistEntry.TABLE_NAME + " (" +
                 WaitlistEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -30,7 +29,6 @@ public class WaitlistDbHelper extends SQLiteOpenHelper {
                 WaitlistEntry.COLUMN_PARTY_SIZE + " INTEGER NOT NULL, " +
                 WaitlistEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 "); ";
-
         sqLiteDatabase.execSQL(SQL_CREATE_WAITLIST_TABLE);
     }
 

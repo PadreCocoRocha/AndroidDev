@@ -54,7 +54,7 @@ public class TestUtil {
             db.setTransactionSuccessful();
         }
         catch (SQLException e) {
-            //too bad :(
+            e.printStackTrace();
         }
         finally
         {

@@ -48,5 +48,4 @@ public class ContractClassUnitTest {
             assertTrue("All members in the contract class should be static", Modifier.isStatic(field.getModifiers()));
         }
     }
-
 }
