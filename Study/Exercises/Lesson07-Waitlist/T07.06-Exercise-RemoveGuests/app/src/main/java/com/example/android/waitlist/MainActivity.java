@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.android.waitlist.data.TestUtil;
 import com.example.android.waitlist.data.WaitlistContract;
 import com.example.android.waitlist.data.WaitlistDbHelper;
 
@@ -48,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Get all guest info from the database and save in a cursor
         Cursor cursor = getAllGuests();
+        if (cursor.getCount() == 0){
+            TestUtil.insertFakeData(mDb);
+            cursor = getAllGuests();
+        }
 
         // Create an adapter for that cursor to display the data
         mAdapter = new GuestListAdapter(this, cursor);
@@ -91,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view The calling view (button)
      */
     public void addToWaitlist(View view) {
-        if (mNewGuestNameEditText.getText().length() == 0 ||
-                mNewPartySizeEditText.getText().length() == 0) {
+        if (mNewGuestNameEditText.getText().length() == 0
+                || mNewPartySizeEditText.getText().length() == 0) {
             return;
         }
         //default party size to 1
