@@ -94,7 +94,7 @@ public class TaskContentProvider extends ContentProvider {
             case TASKS:
                 // Insert new values into the database
                 // Inserting values into tasks table
-                long id = db.insert(TABLE_NAME, null, values);
+                    long id = db.insert(TABLE_NAME, null, values);
                 if ( id > 0 ) {
                     returnUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
                 } else {
@@ -119,16 +119,27 @@ public class TaskContentProvider extends ContentProvider {
     @Override
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+        // COMPLETE (1) Get access to underlying database (read-only for query)
+        SQLiteDatabase db = mTaskDbHelper.getReadableDatabase();
 
-        // TODO (1) Get access to underlying database (read-only for query)
+        // COMPLETE (2) Write URI match code and set a variable to return a Cursor
+        Cursor cursor = null;
+        switch(sUriMatcher.match(uri)){
+            case TASKS:
+                cursor = db.query(
+                        TaskContract.TaskEntry.TABLE_NAME,
+                        null, null, null, null, null,
+                        sortOrder);
+                break;
 
-        // TODO (2) Write URI match code and set a variable to return a Cursor
+            default:
+                throw new RuntimeException("Unknown uri operation");
+        }
+        // COMPLETE (3) Query for the tasks directory and write a default case
 
-        // TODO (3) Query for the tasks directory and write a default case
-
-        // TODO (4) Set a notification URI on the Cursor and return that Cursor
-
-        throw new UnsupportedOperationException("Not yet implemented");
+        // COMPLETE (4) Set a notification URI on the Cursor and return that Cursor
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        return cursor;
     }
 
 
