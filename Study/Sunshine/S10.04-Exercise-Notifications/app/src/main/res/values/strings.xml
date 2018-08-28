@@ -70,6 +70,11 @@
     <!-- Label for the location preference -->
     <string name="pref_location_label">Location</string>
 
+    <!-- Label for the location preference -->
+    <string name="pref_notification_label">Notifications</string>
+
+    <!-- Label for the location preference -->
+    <string name="pref_notification_key" translatable="false">notifications</string>
 
     <!-- Key name for storing location in SharedPreferences -->
     <string name="pref_location_key" translatable="false">location</string>

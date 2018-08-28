@@ -15,6 +15,7 @@
  */
 package com.example.android.sunshine.sync;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -38,6 +39,7 @@ public class SunshineFirebaseJobService extends JobService {
      *
      * @return whether there is more work remaining.
      */
+    @SuppressLint("StaticFieldLeak")
     @Override
     public boolean onStartJob(final JobParameters jobParameters) {
 

@@ -122,7 +122,7 @@ public class NotificationUtils {
 
 //          COMPLETED (4) Use TaskStackBuilder to create the proper PendingINtent
             TaskStackBuilder taskStackBuilder = TaskStackBuilder.create(context);
-            taskStackBuilder.addNextIntentWithParentStack(detailIntentForToday);
+            taskStackBuilder.addNextIntentWithParentS tack(detailIntentForToday);
             PendingIntent resultPendingIntent = taskStackBuilder
                     .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 

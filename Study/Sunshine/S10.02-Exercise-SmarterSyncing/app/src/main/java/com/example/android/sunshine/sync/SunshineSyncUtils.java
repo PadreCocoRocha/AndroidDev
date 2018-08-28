@@ -17,18 +17,45 @@ package com.example.android.sunshine.sync;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+
+import com.example.android.sunshine.data.WeatherContract;
 
 
 public class SunshineSyncUtils {
 
-//  TODO (1) Declare a private static boolean field called sInitialized
+//  COMPLETE (1) Declare a private static boolean field called sInitialized
+    private static boolean sInitialized;
+    //  COMPLETE (2) Create a synchronized public static void method called initialize
+    //  COMPLETE (3) Only execute this method body if sInitialized is false
+    //  COMPLETE (4) If the method body is executed, set sInitialized to true
+    //  COMPLETE (5) Check to see if our weather ContentProvider is empty
+        //  COMPLETE (6) If it is empty or we have a null Cursor, sync the weather now!
+    synchronized public static void initialize(final Context context){
+        if (sInitialized) return;
+        sInitialized = true;
 
-    //  TODO (2) Create a synchronized public static void method called initialize
-    //  TODO (3) Only execute this method body if sInitialized is false
-    //  TODO (4) If the method body is executed, set sInitialized to true
-    //  TODO (5) Check to see if our weather ContentProvider is empty
-        //  TODO (6) If it is empty or we have a null Cursor, sync the weather now!
+        new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... voids) {
+                Cursor cursor = context.getContentResolver().query(
+                        WeatherContract.WeatherEntry.CONTENT_URI,
+                        new String[]{WeatherContract.WeatherEntry._ID},
+                        WeatherContract.WeatherEntry.getSqlSelectForTodayOnwards(),
+                        null,
+                        null);
+
+                if (cursor == null || cursor.getCount() <= 0) {
+                    startImmediateSync(context);
+                }
+
+                cursor.close();
+                return null;
+            }
+        }.execute();
+    }
 
     /**
      * Helper method to perform a sync immediately using an IntentService for asynchronous
