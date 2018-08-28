@@ -25,6 +25,7 @@
   - depending on whether or not it is being touched. These can be set programmatically in Java,  -
   - but again, we wanted to avoid making things too complicated.                                 -
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<layout>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -133,3 +134,4 @@
         tools:text="10\u00b0"/>
 
 </android.support.constraint.ConstraintLayout>
+</layout>

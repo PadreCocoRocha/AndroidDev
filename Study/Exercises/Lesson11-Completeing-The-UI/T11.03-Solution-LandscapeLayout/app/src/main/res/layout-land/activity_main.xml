@@ -48,14 +48,15 @@
                 android:layout_marginStart="16dp" />
 
             <include
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPassengerName"
-                android:layout_marginTop="32dp"
                 android:id="@+id/flight_info"
                 layout="@layout/flight_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintRight_toLeftOf="@+id/textViewDepartureTimeLabel" />
+                android:layout_marginTop="32dp"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/textViewDepartureTimeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPassengerName" />
 
 
             <TextView

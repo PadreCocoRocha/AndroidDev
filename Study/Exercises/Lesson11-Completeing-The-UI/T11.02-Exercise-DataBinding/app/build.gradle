@@ -4,9 +4,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
+    dataBinding.enabled = true
+
     defaultConfig {
         applicationId "com.example.android.boardingpass"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -17,12 +19,11 @@ android {
             minifyEnabled false
         }
     }
-
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-    // TODO (1) Enable Data Binding in your application
+    // COMPLETE (1) Enable Data Binding in your application
 }

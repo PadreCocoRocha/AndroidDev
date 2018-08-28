@@ -17,8 +17,8 @@ android {
             minifyEnabled false
         }
     }
-
-//  TODO (1) Enable databinding
+    dataBinding.enabled = true;
+//  COMPLETE (1) Enable databinding
 }
 
 dependencies {

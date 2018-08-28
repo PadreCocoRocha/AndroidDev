@@ -97,7 +97,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
         switch (viewType) {
 
             case VIEW_TYPE_TODAY: {
-                layoutId = R.layout.list_item_forecast_today;
+                layoutId = R.layout.primary_weather_info;
                 break;
             }
 
